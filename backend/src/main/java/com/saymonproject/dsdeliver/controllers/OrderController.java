@@ -1,6 +1,8 @@
 package com.saymonproject.dsdeliver.controllers;
 
+import com.saymonproject.dsdeliver.dto.OrderDTO;
 import com.saymonproject.dsdeliver.dto.ProductDTO;
+import com.saymonproject.dsdeliver.services.OrderService;
 import com.saymonproject.dsdeliver.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -11,15 +13,15 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping (value = "/products")
-public class ProductController {
+@RequestMapping (value = "/orders")
+public class OrderController {
 
     @Autowired
-    private ProductService service;
+    private OrderService service;
 
     @GetMapping
-    public ResponseEntity<List<ProductDTO>> findAll (){
-        List<ProductDTO> list = service.findAll();
+    public ResponseEntity<List<OrderDTO>> findAll (){
+        List<OrderDTO> list = service.findAll();
         return ResponseEntity.ok().body(list);
 
     }
